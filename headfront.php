@@ -3,57 +3,57 @@
 <html>
 	<head>
     <style>
-      body{
-        -moz-background-size: cover;
-        -webkit-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        background-color: grey;
-      }
-      ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-        position: -webkit-sticky; /* Safari */
-        position: sticky;
-        top: 0;
-      }
+      body {margin:0;}
 
-      li {
-        float: left;
-      }
+			.topnav {
 
-      li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
+  			position: relative;
+  			background-color: #f3f3f3;
+  			overflow: hidden;
+				width: 100%;
+			}
 
-      li a:hover {
-        background-color: #111;
-      }
+			/* Style the links inside the navigation bar */
+			.topnav a {
+  			float: left;
+  			color: #666;
+  			text-align: center;
+  			padding: 14px 16px;
+  			text-decoration: none;
+  			font-size: 17px;
+			}
 
-      .active {
-        background-color: #4CAF50;
-      }
+			/* Change the color of links on hover */
+			.topnav a:hover {
+  			background-color: #ddd;
+  			color: black;
+			}
+
+	/* Add a color to the active/current link */
+			.topnav a.active {
+				color: white;
+	      background-color: #FF4500;
+			}
+
+			/* Right-aligned section inside the top navigation */
+			.topnav-right {
+  			float: right;
+			}
     </style>
 
   </head>
   <body>
-    <div class="header">
-      <h2>Scroll Down</h2>
-      <p>Scroll down to see the sticky effect.</p>
-    </div>
 
-    <ul>
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="topnav">
+
+				<a href="#home" class="active">Home</a>
+      	<a href="#news">News</a>
+			<div class="topnav-right">
+      	<a href="#contact">Login</a>
+				<a href="#search">Sign up</a>
+			</div>
+
+    </div>
 
   </body>
 
