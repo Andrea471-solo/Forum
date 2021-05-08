@@ -2,6 +2,8 @@
 
 <html>
 	<head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       body {margin:0;}
 
@@ -39,6 +41,30 @@
 			.topnav-right {
   			float: right;
 			}
+			.topnav .search-container {
+  			float: right;
+
+			}
+			.topnav input[type=text] {
+  			padding: 6px;
+  			margin-top: 8px;
+  			font-size: 17px;
+  			border: none;
+
+			}
+			.topnav .search-container button {
+  			float: right;
+  			padding: 6px;
+  			margin-top: 8px;
+  			margin-right: 16px;
+  			background: #2196F3;
+  			font-size: 17px;
+  			border: none;
+  			cursor: pointer;
+			}
+			.topnav .search-container button:hover {
+  		background: #ccc;
+			}
     </style>
 
   </head>
@@ -46,12 +72,18 @@
 
     <div class="topnav">
 
-				<a href="#home" class="active">Home</a>
+				<a href="#home" class="fa fa-home">Home</a>
       	<a href="#news">News</a>
 			<div class="topnav-right">
-      	<a href="#contact">Login</a>
-				<a href="#search">Sign up</a>
+      	<a href="#login">Login</a>
+				<a href="#sign up">Sign up</a>
 			</div>
+			<div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
 
     </div>
 
