@@ -61,7 +61,7 @@ function test_input($data) {
   <span class="error">* <?php echo $emailErr;?></span>
   <br><br>
   Password: <input type="password" name="psw" value="<?php echo $psw;?>">
-  <span class="error"><?php echo $pswErr;?></span>
+  <span class="error">* <?php echo $pswErr;?></span>
   <br><br>
   <input type="submit" name="submit" value="Sign Up">
 </form>
