@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 
 <html>
@@ -21,8 +24,10 @@
   			color: #666;
   			text-align: center;
   			padding: 14px 16px;
+				border-radius: 25px;
+  			border: 2px solid #FF4500;
   			text-decoration: none;
-  			font-size: 17px;
+  			font-size: 20px;
 			}
 
 			/* Change the color of links on hover */
@@ -48,8 +53,9 @@
 			.topnav input[type=text] {
   			padding: 6px;
   			margin-top: 8px;
-  			font-size: 17px;
-  			border: none;
+  			font-size: 20px;
+				border-radius: 25px;
+  			border: 2px solid #FF4500;
 
 			}
 			.topnav .search-container button {
@@ -57,13 +63,14 @@
   			padding: 6px;
   			margin-top: 8px;
   			margin-right: 16px;
-  			background: #2196F3;
-  			font-size: 17px;
-  			border: none;
+  			background: #FF4500;
+  			font-size: 20px;
+				border-radius: 25px;
+  			border: 2px solid #FF4500;
   			cursor: pointer;
 			}
 			.topnav .search-container button:hover {
-  		background: #ccc;
+  		background: #ddd;
 			}
     </style>
 
@@ -71,21 +78,21 @@
   <body>
 
     <div class="topnav">
-
-				<a href="#home" class="fa fa-home">Home</a>
-      	<a href="#news">News</a>
-			<div class="topnav-right">
-      	<a href="#login">Login</a>
-				<a href="#sign up">Sign up</a>
-			</div>
-			<div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
-
+					<a href="#home" class="fa fa-home active">Home</a>
+      		<a href="#news">News</a>
+				<div class="topnav-right">
+      		<a href="#login" <i class="fa fa-user"></i>Login</a>
+					<a href="#sign up">Sign up</a>
+				</div>
+				<div class="search-container">
+    		<form action="/action_page.php">
+      		<input type="text" placeholder="Search.." name="search">
+      		<button type="submit"><i class="fa fa-search"></i></button>
+    		</form>
+  			</div>
     </div>
+	
+
 
   </body>
 
