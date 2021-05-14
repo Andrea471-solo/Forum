@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	require 'connect_db.php';
 ?>
 <!DOCTYPE html>
 
@@ -223,6 +224,34 @@
   </head>
   <body>
 
+		<?php
+				if (isset($_SESSION['user_id'])) {
+					if (!$conn) {
+						session_destroy();
+
+					}
+					$session_id=$_SESSION['session_id'];
+					$q= "select user_id, (unix_timestamp-session_time) sessionAge from session where session_id='$session_id'";
+					$res =mysqli_query($conn, $q);
+					if (mysqli_errno($conn))
+							{
+								session_destroy();
+
+							}
+					if (mysqli_num_rows($res) == 0)
+							{
+								session_destroy();
+							}
+
+					$row= mysqli_fetch_assoc($res);
+					if ($row['sessionAge']>3600) {
+						session_destroy();
+					}
+
+				}
+
+		 ?>
+
     <div class="topnav">
 					<a href="#home" class="fa fa-home active">Home</a>
       		<a href="#news">News</a>
@@ -233,24 +262,48 @@
 		      		<button type="submit"><i class="fa fa-search"></i></button>
 		    		</form>
 	  			</div>
+					<?php
+					if (isset($_SESSION['user_id'])) {
+					 ?>
+					 <form action="logout.php" method="post">
+								<button class="l-but" type="submit" name="logout-submit" <i class="fa fa-user"></i>Logout</button>
+					 </form>
+					 <?php
+			 	  }else {
+					  ?>
 					<button class="l-but" type="button"
 					onclick="document.getElementById('myModal').style.display='block'"
 					style="width:auto;" <i class="fa fa-user"></i> Login</button>
-					<a href="#sign up">Sign up</a>
+					<?php
+			   	}
+					 ?>
+					<a href="sign_up.php">Sign up</a>
 				</div>
     </div>
+					<?php
+							if (isset($_GET['error'])) {
+								if ($_GET['error']=="sqlerror") {
+									echo '<script type="text/javascript">';
+									echo ' alert("SQL error- User not found")';  //not showing an alert box.
+									echo '</script>';
+								}
+								else if ($_GET['error']=="incorrectpsw") {
+									echo '<script type="text/javascript">';
+									echo ' alert("Incorrect password")';  //not showing an alert box.
+									echo '</script>';
+								}
+
+							}
+							?>
 
 
 		<div id="myModal" class="modal fade">
 
-
-
-		  <form class="mod-content animate" action="/connect_db.php" method="post">
-
+		  <form class="mod-content animate" action="login.php" method="post">
 		    <div class="imgcontainer">
 		      <span onclick="document.getElementById('myModal').style.display='none'"
 		      class="close" title="Close">&times;</span>
-		      <img src="/Forum/Forum.git/rsc/sign_in.png" alt="Sign-in icon" class="avatar"></img>
+		      <img src="/Forum_1/rsc/sign_in.png" alt="Sign-in icon" class="avatar"></img>
 		    </div>
 
 		    <div class="container">
@@ -260,7 +313,7 @@
 		      <label for="psw">Password</label>
 		      <input class="s-input" type="password" name="psw" placeholder="Enter Password" required>
 
-		      <button class="login-but"type="submit" data-toggle="tooltip" title="At the touch of a button">Login</button>
+		      <button onclick="myFunc()" class="login-but"type="submit" name="login-submit" data-toggle="tooltip" title="At the touch of a button">Login</button>
 		      <label>
 		          <input type="checkbox" name="remember" checked="checked">Remember me
 		      </label>
@@ -273,6 +326,20 @@
 		  </form>
 		</div>
 
+		<script>
+
+		function myFunc(){
+			<?php
+			 if ($_GET['error']=="nomatch") {?>
+				 alert("You dont have an account yet. Please sign up to create an account.");
+				 <?php
+			    }
+				 ?>
+
+
+		}
+
+		</script>
 		<script>
 		$(document).ready(function(){
 		  $('[data-toggle="tooltip"]').tooltip();
