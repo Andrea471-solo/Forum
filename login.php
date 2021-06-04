@@ -155,7 +155,7 @@ style="width:auto;">Login</button>
       <label for="usname"><b>Username</b></label>
       <input class="s-input" type="text" name="usname" placeholder="Enter Username" required>
 
-      <label for="psw">Password</label>
+      <label for="psw"><b>Password</b></label>
       <input class="s-input" type="password" name="psw" placeholder="Enter Password" required>
 
       <button type="submit" data-toggle="tooltip" title="At the touch of a button">Login</button>
