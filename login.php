@@ -1,10 +1,4 @@
-<?php
-	session_start();
-	require 'connect_db.php';
-	require 'headfront.php';
-?>
 <!DOCTYPE html>
-
 <html>
 	<head>
     <style>
@@ -201,7 +195,52 @@
 
 		</script>
 
+
 </body>
 
+<button type="button" onclick="document.getElementById('myModal').style.display='block'"
+style="width:auto;">Login</button>
+
+<div id="myModal" class="modal fade">
+
+
+
+  <form class="mod-content animate" action="/connect_db.php" method="post">
+
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('myModal').style.display='none'"
+      class="close" title="Close">&times;</span>
+      <img src="/Forum/Forum.git/rsc/sign_in.png" alt="Sign-in icon" class="avatar"></img>
+    </div>
+
+    <div class="container">
+      <label for="usname"><b>Username</b></label>
+      <input class="s-input" type="text" name="usname" placeholder="Enter Username" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input class="s-input" type="password" name="psw" placeholder="Enter Password" required>
+
+      <button type="submit" data-toggle="tooltip" title="At the touch of a button">Login</button>
+      <label>
+          <input type="checkbox" name="remember" checked="checked">Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbutton">Cancel</button>
+      <span class="psw"><a href="#">Forgot password?</span>
+    </div>
+  </form>
+</div>
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
 
 </html>
