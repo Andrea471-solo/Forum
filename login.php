@@ -185,17 +185,19 @@
 	    document.getElementById('s-input').classList.add('animat');
 
 	 });
-	     <?php if ($_GET['error']=="nomatch") {?>
+	     <?php
+			 if ($_GET['error']=="nomatch") {?>
 			 document.getElementById('alert').style.display='block';
-			 <?php}?>
-			 <?php if ($_GET['error']=="incorrectpsw") {?>
+			 <?php
+		 	 }?>
+			 <?php
+			 if ($_GET['error']=="incorrectpsw") {?>
 			 document.getElementById('alert').style.display='block';
 			 document.getElementById('alert').innerHTML='Wrong password';
-			 <?php}?>
+			 <?php
+		   }?>
 
 		</script>
 
 </body>
-
-
 </html>
