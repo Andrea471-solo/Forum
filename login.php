@@ -165,7 +165,7 @@
 
         <button id="btn"class="login-but"type="submit" name="login-submit" data-toggle="tooltip" title="At the touch of a button">Login</button>
         <span id="alert"class="alert">Invalid Credentials</span>
-        
+
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
@@ -185,19 +185,13 @@
 	    document.getElementById('s-input').classList.add('animat');
 
 	 });
-	     <?php
-				if ($_GET['error']=="nomatch") {?>
-				document.getElementById('alert').style.display='block';
-				<?php
-				 }
-				?>
-				<?php
-				if ($_GET['error']=="incorrectpsw") {?>
-				 document.getElementById('alert').style.display='block';
-				 document.getElementById('alert').innerHTML='Wrong password';
-				 <?php
-					}
-				 ?>
+	     <?php if ($_GET['error']=="nomatch") {?>
+			 document.getElementById('alert').style.display='block';
+			 <?php}?>
+			 <?php if ($_GET['error']=="incorrectpsw") {?>
+			 document.getElementById('alert').style.display='block';
+			 document.getElementById('alert').innerHTML='Wrong password';
+			 <?php}?>
 
 		</script>
 
