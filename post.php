@@ -90,10 +90,6 @@
   </form>
 </div>
 
-<?php
-  echo title;
 
-
- ?>
   </body>
 </html>
