@@ -136,9 +136,6 @@
 				color: #ff4500;
 
 			}
-
-=======
-<head>
 <style>
 
 /*Bordered form*/
@@ -289,7 +286,7 @@ span.psw {
 
         <button id="btn"class="login-but"type="submit" name="login-submit" data-toggle="tooltip" title="At the touch of a button">Login</button>
         <span id="alert"class="alert">Invalid Credentials</span>
-        
+
       </div>
 
       <div class="container" style="background-color:#f1f1f1">
